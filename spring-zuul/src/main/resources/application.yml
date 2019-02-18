@@ -1,0 +1,23 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/
+    registry-fetch-interval-seconds: 5
+    fetch-registry: true
+    register-with-eureka: true
+ 
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}:${server.port}
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30
+    lease-expiration-duration-in-seconds: 5
+
+ 
+zuul:
+  ignoredServices: "*"
+  prefix: /api
+  routes:    
+    student-service:
+      path: /rest/**
+      sensitiveHeaders:
+  retryable: false

@@ -1,0 +1,25 @@
+server:
+  port: 8761
+  
+spring:
+  application:
+    name: eureka-server
+    
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 5
+
+logging:
+  level:
+    com:
+     netflix:
+      eureka: OFF 
+      discovery: OFF
+      
+      
+      
